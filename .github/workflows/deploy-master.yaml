@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Rebuild backend image
+      run: npm run build:docker
+
+    - name: Stop backend
+      run: npm run stop:docker
+
+    - name: Start backend
+      run: npm run start:docker
