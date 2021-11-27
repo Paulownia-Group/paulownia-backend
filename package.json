@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "build:docker": "docker build -t paulownia-api:latest ./",
     "start:docker": "docker run --name app-api --net app-net -d paulownia-api:latest node dist/index.js $SMTP_PASS",
-    "stop:docker": "docker kill app-api && docker rm -f app-api",
+    "stop:docker": "docker stop app-api || true && docker rm -f app-api || true",
     "start": "node dist/index",
     "lint": "npx eslint './src/**/*'",
     "test": "echo \"Error: no test specified\" && exit 1"
