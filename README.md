@@ -6,5 +6,5 @@ API for a website that sells paulownia.
 
 ```sh
 npm run build
-npm run start
+npm run start -- $SMTP_PASS
 ```
